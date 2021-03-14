@@ -36,6 +36,179 @@ paths:
                     dateOfBirth: '1997-10-31'
                     emailVerified: true
                     signUpDate: '2019-08-24'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  coord:
+                    type: object
+                    required:
+                      - lon
+                      - lat
+                    properties:
+                      lon:
+                        type: number
+                      lat:
+                        type: number
+                  weather:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        main:
+                          type: string
+                          minLength: 1
+                        description:
+                          type: string
+                          minLength: 1
+                        icon:
+                          type: string
+                          minLength: 1
+                      required:
+                        - id
+                        - main
+                        - description
+                        - icon
+                  base:
+                    type: string
+                    minLength: 1
+                  main:
+                    type: object
+                    properties:
+                      temp:
+                        type: number
+                      feels_like:
+                        type: number
+                      temp_min:
+                        type: number
+                      temp_max:
+                        type: number
+                      pressure:
+                        type: number
+                      humidity:
+                        type: number
+                      extra:
+                        type: string
+                  visibility:
+                    type: number
+                  wind:
+                    type: object
+                    properties:
+                      speed:
+                        type: number
+                      deg:
+                        type: number
+                  clouds:
+                    type: object
+                    properties:
+                      all:
+                        type: number
+                  dt:
+                    type: number
+                  sys:
+                    type: object
+                    required:
+                      - type
+                      - id
+                      - country
+                      - sunrise
+                      - sunset
+                    properties:
+                      type:
+                        type: number
+                      id:
+                        type: number
+                      country:
+                        type: string
+                        minLength: 1
+                      sunrise:
+                        type: number
+                      sunset:
+                        type: number
+                  timezone:
+                    type: number
+                  id:
+                    type: number
+                  name:
+                    type: string
+                    minLength: 1
+                  cod:
+                    type: number
+                  '':
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      main:
+                        type: string
+                      description:
+                        type: string
+                      icon:
+                        type: string
+                required:
+                  - coord
+                  - weather
+                  - base
+                  - main
+                  - visibility
+                  - wind
+                  - clouds
+                  - dt
+                  - sys
+                  - timezone
+                  - id
+                  - name
+                  - cod
+              examples:
+                Example:
+                  value:
+                    coord:
+                      lon: 0
+                      lat: 0
+                    weather:
+                      - id: 0
+                        main: string
+                        description: string
+                        icon: string
+                    base: string
+                    main:
+                      temp: 0
+                      feels_like: 0
+                      temp_min: 0
+                      temp_max: 0
+                      pressure: 0
+                      humidity: 0
+                      extra: string
+                    visibility: 0
+                    wind:
+                      speed: 0
+                      deg: 0
+                    clouds:
+                      all: 0
+                    dt: 0
+                    sys:
+                      type: 0
+                      id: 0
+                      country: string
+                      sunrise: 0
+                      sunset: 0
+                    timezone: 0
+                    id: 0
+                    name: string
+                    cod: 0
+                    '':
+                      id: 0
+                      main: string
+                      description: string
+                      icon: string
         '404':
           description: User Not Found
       operationId: get-weather
